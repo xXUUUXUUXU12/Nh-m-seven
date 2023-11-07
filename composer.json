@@ -1,0 +1,15 @@
+{
+    "name": "ductong/base-mvc",
+    "autoload": {
+        "psr-4": {
+            "Ductong\\BaseMvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tống Văn Đức",
+            "email": "tongduc315@gmail.com"
+        }
+    ],
+    "require": {}
+}
