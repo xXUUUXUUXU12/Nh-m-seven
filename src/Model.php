@@ -20,7 +20,7 @@ class Model {
     }
 
     public function findOne($id) {
-        $sql = 'SELECT * FROM ' . $this->table . ' WHERE id = :id LIMIT 1';
+        $sql = "SELECT * FROM {$this->table} WHERE id = :id LIMIT 1";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -34,7 +34,7 @@ class Model {
     }
 
     public function all() {
-        $sql = 'SELECT * FROM ' . $this->table;
+        $sql = "SELECT * FROM $this->table";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -46,7 +46,7 @@ class Model {
     }
 
     public function paginate($page = 1, $perPage = 10) {
-        $sql = "SELECT * FROM {$this->table} LIMIT $perPage OFFSET (($page - 1) * $perPage)";
+        $sql = "SELECT * FROM {$this->table} LIMIT {$perPage} OFFSET (({$page} - 1) * {$perPage})";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -87,6 +87,7 @@ class Model {
         ];
 
         $conditions = [
+            ['collumn_name', 'toán tử so sánh', 'giá trị người dùng truyền vào', 'AND hoặc OR'],
             ['collumn_name', 'toán tử so sánh', 'giá trị người dùng truyền vào']
         ];
     */
@@ -102,9 +103,10 @@ class Model {
 
         $where = [];
         foreach ($conditions as $condition) {
-            $where[] = "{$condition[0]} {$condition[1]} :{$condition[0]}";
+            $link = $condition[3] ?? '';
+            $where[] = "{$condition[0]} {$condition[1]} :{$condition[0]} {$link}";
         }
-        $where = implode(" AND ", $where);
+        $where = implode(" ", $where);
         $sql .= " WHERE {$where}";
 
         $stmt = $this->conn->prepare($sql);
@@ -127,9 +129,10 @@ class Model {
 
         $where = [];
         foreach ($conditions as $condition) {
-            $where[] = "{$condition[0]} {$condition[1]} :{$condition[0]}";
+            $link = $condition[3] ?? '';
+            $where[] = "{$condition[0]} {$condition[1]} :{$condition[0]} {$link}";
         }
-        $where = implode(" AND ", $where);
+        $where = implode(" ", $where);
         $sql .= "{$where}";
 
         $stmt = $this->conn->prepare($sql);
