@@ -8,11 +8,8 @@ use Ductong\BaseMvc\Models\User;
 class UserController extends Controller
 {
     public function index() {
-        $users = [
-            new User('John Doe', 'john@example.com'),
-            new User('Jane Doe', 'jane@example.com')
-        ];
-
+        $users = (new User)->all();
+        
         $this->render('user/index', ['users' => $users]);
     }
 }

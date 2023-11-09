@@ -10,7 +10,7 @@ class Model {
 
     public function __construct() {
         try {
-            $this->conn = new \PDO("mysql:host=localhost", 'root', '');
+            $this->conn = new \PDO("mysql:host=localhost;dbname=wd18341", 'root', '');
         
             // set the PDO error mode to exception
             $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -105,7 +105,7 @@ class Model {
             $where[] = "{$condition[0]} {$condition[1]} :{$condition[0]}";
         }
         $where = implode(", ", $where);
-        $sql .= "WHERE {$where}";
+        $sql .= " WHERE {$where}";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -116,9 +116,7 @@ class Model {
         }
 
         foreach ($conditions as $condition) {
-            if (in_array($condition[0], $this->columns)) {
-                $stmt->bindParam(":{$condition[0]}", $condition[2]);
-            }
+            $stmt->bindParam(":{$condition[0]}", $condition[2]);
         }
         
         $stmt->execute();
@@ -137,9 +135,7 @@ class Model {
         $stmt = $this->conn->prepare($sql);
 
         foreach ($conditions as $condition) {
-            if (in_array($condition[0], $this->columns)) {
-                $stmt->bindParam(":{$condition[0]}", $condition[2]);
-            }
+            $stmt->bindParam(":{$condition[0]}", $condition[2]);
         }
         
         $stmt->execute();
