@@ -4,12 +4,10 @@ namespace Ductong\BaseMvc\Models;
 
 use Ductong\BaseMvc\Model;
 
-class User extends Model{
-    public $name;
-    public $email;
-
-    public function __construct($name, $email) {
-        $this->name = $name;
-        $this->email = $email;
-    }
+class User extends Model {
+    protected $table = 'users';
+    protected $columns = [
+        'name',
+        'email',
+    ];
 }
