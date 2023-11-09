@@ -129,7 +129,7 @@ class Model {
         foreach ($conditions as $condition) {
             $where[] = "{$condition[0]} {$condition[1]} :{$condition[0]}";
         }
-        $where = implode(", ", $where);
+        $where = implode(" AND ", $where);
         $sql .= "{$where}";
 
         $stmt = $this->conn->prepare($sql);
