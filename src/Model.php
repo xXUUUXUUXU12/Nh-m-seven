@@ -2,16 +2,18 @@
 
 namespace Ductong\BaseMvc;
 
-class Model {
+class Model
+{
     protected $conn;
     protected $table;
 
     protected $columns;
 
-    public function __construct() {
+    public function __construct()
+    {
         try {
             $this->conn = new \PDO("mysql:host=localhost;dbname=wd18341", 'root', '');
-        
+
             // set the PDO error mode to exception
             $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
@@ -19,7 +21,8 @@ class Model {
         }
     }
 
-    public function findOne($id) {
+    public function findOne($id)
+    {
         $sql = "SELECT * FROM {$this->table} WHERE id = :id LIMIT 1";
 
         $stmt = $this->conn->prepare($sql);
@@ -33,8 +36,9 @@ class Model {
         return $stmt->fetch();
     }
 
-    public function all() {
-        $sql = "SELECT * FROM $this->table";
+    public function all($column = 'id')
+    {
+        $sql = "SELECT * FROM {$this->table} ORDER BY {$column} DESC";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -45,7 +49,8 @@ class Model {
         return $stmt->fetchAll();
     }
 
-    public function paginate($page = 1, $perPage = 10) {
+    public function paginate($page = 1, $perPage = 10)
+    {
         $sql = "SELECT * FROM {$this->table} LIMIT {$perPage} OFFSET (({$page} - 1) * {$perPage})";
 
         $stmt = $this->conn->prepare($sql);
@@ -57,7 +62,8 @@ class Model {
         return $stmt->fetchAll();
     }
 
-    public function insert($data) {
+    public function insert($data)
+    {
         $sql = "INSERT INTO {$this->table}";
 
         $columns = implode(", ", $this->columns);
@@ -72,12 +78,12 @@ class Model {
 
         $stmt = $this->conn->prepare($sql);
 
-        foreach ($data as $key => $value) {
+        foreach ($data as $key => &$value) {
             if (in_array($key, $this->columns)) {
                 $stmt->bindParam(":{$key}", $value);
             }
         }
-        
+
         $stmt->execute();
     }
 
@@ -91,7 +97,8 @@ class Model {
             ['collumn_name', 'toán tử so sánh', 'giá trị người dùng truyền vào']
         ];
     */
-    public function update($data, $conditions = []) {
+    public function update($data, $conditions = [])
+    {
         $sql = "UPDATE {$this->table} SET ";
 
         $sets = [];
@@ -104,47 +111,49 @@ class Model {
         $where = [];
         foreach ($conditions as $condition) {
             $link = $condition[3] ?? '';
-            $where[] = "{$condition[0]} {$condition[1]} :{$condition[0]} {$link}";
+            $where[] = "{$condition[0]} {$condition[1]} :w{$condition[0]} {$link}";
         }
         $where = implode(" ", $where);
         $sql .= " WHERE {$where}";
 
         $stmt = $this->conn->prepare($sql);
 
-        foreach ($data as $key => $value) {
+        foreach ($data as $key => &$value) {
             if (in_array($key, $this->columns)) {
                 $stmt->bindParam(":{$key}", $value);
             }
         }
 
-        foreach ($conditions as $condition) {
-            $stmt->bindParam(":{$condition[0]}", $condition[2]);
+        foreach ($conditions as &$condition) {
+            $stmt->bindParam(":w{$condition[0]}", $condition[2]);
         }
-        
+
         $stmt->execute();
     }
 
-    public function delete($conditions = []) {
+    public function delete($conditions = [])
+    {
         $sql = "DELETE FROM {$this->table} WHERE ";
 
         $where = [];
         foreach ($conditions as $condition) {
             $link = $condition[3] ?? '';
-            $where[] = "{$condition[0]} {$condition[1]} :{$condition[0]} {$link}";
+            $where[] = "{$condition[0]} {$condition[1]} :w{$condition[0]} {$link}";
         }
         $where = implode(" ", $where);
         $sql .= "{$where}";
 
         $stmt = $this->conn->prepare($sql);
 
-        foreach ($conditions as $condition) {
-            $stmt->bindParam(":{$condition[0]}", $condition[2]);
+        foreach ($conditions as &$condition) {
+            $stmt->bindParam(":w{$condition[0]}", $condition[2]);
         }
-        
+
         $stmt->execute();
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         $this->conn = null;
     }
 }
