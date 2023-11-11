@@ -53,4 +53,14 @@ class UserController extends Controller
 
         $this->render('admin/users/update', ['user' => $user]);
     }
+
+    public function delete() {
+        $conditions = [
+            ['id', '=', $_GET['id']]
+        ];
+
+        (new User)->delete($conditions);
+
+        header('Location: /admin/users');
+    }
 }
