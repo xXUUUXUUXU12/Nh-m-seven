@@ -5,5 +5,6 @@
 3. Mở terminal của Laragon và chạy:
     3.1. Di chuyển vào trong dự án: ```cd ten_du_an```
     3.2. Chạy lệnh: ```composer update```
+    3.3. Chạy lệnh xóa git của Thầy: ```rm -rf .git```
 4. Stop -> Start Laragon
 5. Truy cập domain tương ứng với dự án.
