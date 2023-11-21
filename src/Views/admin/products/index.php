@@ -1,3 +1,4 @@
+
 <div class="pcoded-content">
 
     <div class="page-header card">
@@ -6,7 +7,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-home bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Category List</h5>
+                        <h5>Product List</h5>
                     </div>
                 </div>
             </div>
@@ -16,7 +17,7 @@
                         <li class="breadcrumb-item">
                             <a href="/addmin/dashboard"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Category List</a> </li>
+                        <li class="breadcrumb-item"><a href="#!">Product List</a> </li>
                     </ul>
                 </div>
             </div>
@@ -34,7 +35,7 @@
                                 <div class="card-header">
                                     <h5>Danh sách loại hàng</h5>
 
-                                    <a href="/admin/categories/create" class="btn btn-info btn-sm">Tạo mới</a>
+                                    <a href="/admin/products/create" class="btn btn-info btn-sm">Tạo mới</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
@@ -43,24 +44,38 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Name</th>
+                                                    <th>image</th>
+                                                    <th>price</th>
+                                                    <th>description</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
 
                                             <tbody>
-                                                <?php foreach ($categories as $categories) : ?>
+                                                <?php foreach ($products as $products) {
+                                                    extract($products);
+                                                    $imgpath="../upload/".$image;
+                                    if (is_file($imgpath)) {
+                                        $img="<img src='".$imgpath."' height='120'";
+                                    }else{
+                                        $img="không có ảnh";
+                                    }
+                                    ?>
                                                     <tr>
-                                                        <td><?= $categories['id'] ?></td>
-                                                        <td><?= $categories['name_categories'] ?></td>     
+                                                        <td><?= $products['id'] ?></td>
+                                                        <td><?= $products['name'] ?></td> 
+                                                        <td><img src="<?= $products['img'] ?>" alt=""></td>
+                                                        <td><?= $products['price'] ?></td>
+                                                        <td><?= $products['description'] ?></td>    
                                                         <td>
-                                                            <a href="/admin/categories/update?id=<?= $categories['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
+                                                            <a href="/admin/products/update?id=<?= $products['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
 
-                                                            <form action="/admin/categories/delete?id=<?= $categories['id'] ?>" method="post">
+                                                            <form action="/admin/products/delete?id=<?= $products['id'] ?>" method="post">
                                                                 <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" class="btn btn-danger btn-sm mt-2">Xóa</button>
                                                             </form>
                                                         </td>
                                                     </tr>
-                                                <?php endforeach; ?>
+                                                <?php } ?>
                                             </tbody>
 
                                         </table>

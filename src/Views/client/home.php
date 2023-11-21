@@ -6,6 +6,8 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Đây là trang chủ</h1>
+    <h1>trang chủ
+        
+    </h1>
 </body>
 </html>
