@@ -6,7 +6,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-home bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Category Update</h5>
+                        <h5>Category</h5>
                     </div>
                 </div>
             </div>
@@ -14,9 +14,9 @@
                 <div class="page-header-breadcrumb">
                     <ul class=" breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="/addmin/dashboard"><i class="feather icon-home"></i></a>
+                            <a href="/admin/dashboard"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Category Update</a> </li>
+                        <li class="breadcrumb-item"><a href="#!">Category</a> </li>
                     </ul>
                 </div>
             </div>
@@ -37,8 +37,8 @@
                                 <div class="card-block">
                                     <form action="" method="post">
                                         <label for="name">Name</label>
-                                        <input type="text" name="name_categories" class="form-control" value="<?= $category['name_categories'] ?>">
-                                
+                                        <input type="text" name="name" class="form-control" value="<?= $category['name'] ?>">
+
                                         <button type="submit" name="btn-submit" class="btn btn-info mt-3">Submit</button>
                                         <a href="/admin/categories" class="btn btn-primary mt-3">Quay lại d/s</a>
                                     </form>
@@ -51,5 +51,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>

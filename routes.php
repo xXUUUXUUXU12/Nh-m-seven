@@ -2,8 +2,8 @@
 
 use Ductong\BaseMvc\Controllers\Admin\UserController;
 use Ductong\BaseMvc\Controllers\Admin\CategoryController;
-use Ductong\BaseMvc\Controllers\Admin\ProductController;
 use Ductong\BaseMvc\Controllers\Admin\DashboardController;
+use Ductong\BaseMvc\Controllers\Admin\ProductController;
 use Ductong\BaseMvc\Controllers\Client\HomeController;
 use Ductong\BaseMvc\Router;
 

@@ -1,11 +1,3 @@
-<?php
-$img_path = $UPLOAD_URL . '/products/' . $image;
-if (is_file($img_path)) {
-    $img = "<img src='$img_path' height='80'>";
-} else {
-    $img = "no photo";
-}
-?>
 <div class="pcoded-content">
 
     <div class="page-header card">
@@ -14,7 +6,7 @@ if (is_file($img_path)) {
                 <div class="page-header-title">
                     <i class="feather icon-home bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Product Update</h5>
+                        <h5>Product</h5>
                     </div>
                 </div>
             </div>
@@ -22,9 +14,9 @@ if (is_file($img_path)) {
                 <div class="page-header-breadcrumb">
                     <ul class=" breadcrumb breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="/addmin/dashboard"><i class="feather icon-home"></i></a>
+                            <a href="/admin/dashboard"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Product Update</a> </li>
+                        <li class="breadcrumb-item"><a href="#!">Product</a> </li>
                     </ul>
                 </div>
             </div>
@@ -44,63 +36,45 @@ if (is_file($img_path)) {
                                 </div>
                                 <div class="card-block">
                                     <form action="" method="post" enctype="multipart/form-data">
-                                    <div class="row">
-                                    <div class="form-group col-sm-4">
-                            <label for="id" class="form-label">Loại hàng</label>
-                            <select name="id" class="form-control" id="id">
-                                <?php
+                                        <input type="hidden" name="id" value="<?= $product['id'] ?>">
 
-                                foreach ($loai_hang as $loai_hang) {
-                                    extract($loai_hang);
-                                    if ($id == $hang_hoa_info['id']) {
-                                        $s = "selected";
-                                    } else {
-                                        $s = "";
-                                    }
-                                    echo '<option ' . $s . ' value="' . $id . '">' . $name . '</option>';
-                                }
-
-                                ?>
-
-                            </select>
-                        </div>
-                        </div>
-                                        
                                         <label for="name">Name</label>
-                                        <input type="text" name="name" class="form-control" value="<?= $product['name'] ?>">
+                                        <input type="text" name="name" id="name" class="form-control" value="<?= $product['name'] ?>">
 
-                                        <div class="row">
-                        <div class="form-group col-sm-4">
-                            <div class="row align-items-center">
-                                <div class="col-sm-8">
-                                    <label for="image" class="form-label">Ảnh sản phẩm</label>
-                                    <input type="hidden" name="image" id="image" class="form-control"
-                                        value="<?= $image ?>">
-                                    <input type="file" name="image" id="image" class="form-control">
-                                </div>
-                                <div class="col-sm-4">
-                                    <!-- Ảnh sản phẩm ban đầu -->
-                                    <?= $img ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <label for="price" class="form-label">Đơn giá (vnđ)</label>
-                            <input type="text" name="price" id="price" class="form-control" value="<?= $price ?>">
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <label for="date_add" class="form-label">Ngày nhập</label>
-                            <input type="date" name="date_add" id="date_add" class="form-control" required
-                                value="<?= $date_add ?>">
-                        </div>
-                        <div class="row">
-                        <div class="form-group col-sm-12">
-                            <label for="description" class="form-label">Mô tả sản phẩm</label>
-                            <textarea id="txtarea" spellcheck="false" name="description"
-                                class="form-control form-control-lg mb-3" id="textareaExample"
-                                rows="3"><?= $description ?></textarea>
-                        </div>
-                    </div>
+                                        <label for="category_id">Category</label>
+                                        <select name="category_id" id="category_id" class="form-control">
+                                            <?php foreach ($categories as $category) : ?>
+                                                <option 
+                                                    <?= $product['category_id'] == $category['id'] ? 'selected' : '' ?> 
+                                                    value="<?= $category['id'] ?>">
+                                                    
+                                                    <?= $category['name'] ?>
+
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+
+                                        <label for="img">Img</label>
+                                        <input type="file" name="img" id="img" class="form-control">
+                                        <input type="hidden" name="img_current" id="img_current" class="form-control" value="<?= $product['img'] ?>">
+                                        <img src="<?= $product['img'] ?>" alt="" width="100px">
+
+                                        <br>
+
+                                        <label for="price">Price</label>
+                                        <input type="number" name="price" id="price" class="form-control" value="<?= $product['price'] ?>">
+
+                                        <label for="price_sale">Price sale</label>
+                                        <input type="number" name="price_sale" id="price_sale" class="form-control" value="<?= $product['price_sale'] ?>">
+
+                                        <label for="is_active">Active</label>
+                                        <select name="is_active" id="is_active" class="form-control">
+                                            <option <?= $product['is_active'] ? '' : 'selected' ?>  value="0">No</option>
+                                            <option <?= $product['is_active'] ? 'selected' : '' ?>  value="1" selected>Yes</option>
+                                        </select>
+
+                                        <label for="description">Description</label>
+                                        <textarea name="description" id="description" class="form-control"><?= $product['description'] ?></textarea>
 
                                         <button type="submit" name="btn-submit" class="btn btn-info mt-3">Submit</button>
                                         <a href="/admin/products" class="btn btn-primary mt-3">Quay lại d/s</a>
@@ -114,5 +88,4 @@ if (is_file($img_path)) {
             </div>
         </div>
     </div>
-</div>
 </div>

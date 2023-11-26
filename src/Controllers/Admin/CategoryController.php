@@ -18,7 +18,7 @@ class CategoryController extends Controller {
     public function create() {
         if (isset($_POST["btn-submit"])) { 
             $data = [
-                'name_categories' => $_POST['name_categories'],
+                'name' => $_POST['name'],
             ];
 
             (new Category())->insert($data);
@@ -34,7 +34,7 @@ class CategoryController extends Controller {
 
         if (isset($_POST["btn-submit"])) { 
             $data = [
-                'name_categories' => $_POST['name_categories'],
+                'name' => $_POST['name'],
             ];
 
             $conditions = [
@@ -42,7 +42,6 @@ class CategoryController extends Controller {
             ];
 
             (new Category())->update($data, $conditions);
-            header('Location: /admin/categories');
         }
 
         $category = (new Category())->findOne($_GET["id"]);
