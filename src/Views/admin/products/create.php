@@ -36,6 +36,7 @@
                                 </div>
                                 <div class="card-block">
                                     <form action="" method="post" enctype="multipart/form-data">
+
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" class="form-control">
 
@@ -45,6 +46,10 @@
                                                 <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
                                             <?php endforeach; ?>
                                         </select>
+
+
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" class="form-control">
 
                                         <label for="img">Img</label>
                                         <input type="file" name="img" id="img" class="form-control">
