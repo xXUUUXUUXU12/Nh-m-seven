@@ -163,8 +163,13 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
+                    <?php
+                    if (isset($_SESSION['name_page'])) {
+                        $name_page = $_SESSION['name_page'];
+                    }
+                    ?>
 						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
+						<li <?= $name_page == 'trang_chu' ? 'active' : '' ?>><a href="<?= $uri ?>/components/store.php">Hot Deals</a></li>
 						<li><a href="#">Categories</a></li>
 						<li><a href="#">Laptops</a></li>
 						<li><a href="#">Smartphones</a></li>
