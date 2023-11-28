@@ -37,12 +37,16 @@
                                 <div class="card-block">
                                     <form action="" method="post" enctype="multipart/form-data">
 
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" class="form-control">
+
                                         <label for="category_id">Category</label>
                                         <select name="category_id" id="category_id" class="form-control">
                                             <?php foreach ($categories as $category) : ?>
                                                 <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
                                             <?php endforeach; ?>
                                         </select>
+
 
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" class="form-control">
