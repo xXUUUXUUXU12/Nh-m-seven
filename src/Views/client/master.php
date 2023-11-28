@@ -43,7 +43,7 @@
     <!-- /HEADER -->
 
     <!-- NAVIGATION -->
-    <?php require_once 'components/header1.php'; ?>
+    <?php require_once 'components/navbar1.php'; ?>
     <!-- /NAVIGATION -->
 
     <?php require_once $view . '.php'; ?>

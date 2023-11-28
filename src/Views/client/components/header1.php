@@ -9,7 +9,7 @@
 				<div class="col-md-3">
 					<div class="header-logo">
 						<a href="#" class="logo">
-							<img src="/electro-master/img/loho.png" alt="">
+							<img src="/electro-master/img/logo.png" alt="">
 						</a>
 					</div>
 				</div>
@@ -35,12 +35,12 @@
 				<div class="col-md-3 clearfix">
 					<div class="header-ctn">
 						<!-- Wishlist -->
-						<div>
+						<!-- <div>
 							<a href="#">
 								<i class="fa fa-heart-o"></i>
 								<span>Your Wishlist</span>
 							</a>
-						</div>
+						</div> -->
 						<!-- /Wishlist -->
 
 						<!-- Cart -->
