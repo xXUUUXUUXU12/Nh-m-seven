@@ -36,8 +36,8 @@
                                 </div>
                                 <div class="card-block">
                                     <form action="" method="post">
-                                        <label for="username">Name</label>
-                                        <input type="text" name="username" class="form-control" value="<?= $user['username'] ?>">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" class="form-control" value="<?= $user['name'] ?>">
 
                                         <label for="address" class="mt-3">Email</label>
                                         <input type="email" name="email" class="form-control" value="<?= $user['email'] ?>">

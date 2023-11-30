@@ -46,6 +46,7 @@
                                                     <th>Name</th>
                                                     <th>Price</th>
                                                     <th>Price sale</th>
+                                                    <th>Danh mục</th>
                                                     <th>Active</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -55,16 +56,6 @@
                                                 <?php foreach ($products as $product) : ?>
                                                     <tr>
                                                         <td><?= $product['id'] ?></td>
-
-                                                        <td><?= $product['name'] ?></td>
-                                                        <td>
-                                                            <img src="<?= $product['img'] ?>" alt="" width="100px">
-                                                        </td>
-                                                        
-                                                        <td><?= $product['price'] ?></td>
-                                                        <td><?= $product['price_sale'] ?></td>
-                                                        <td><?= $arrayCategoryIdName[$product['category_id']] ?></td>
-
                                                         <td>
                                                             <img src="<?= $product['img'] ?>" alt="" width="100px">
                                                         </td>

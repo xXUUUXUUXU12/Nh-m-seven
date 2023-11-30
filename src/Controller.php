@@ -5,11 +5,9 @@ namespace Ductong\BaseMvc;
 class Controller {
     // Render ra giao diện client
     protected function render($view, $data = []) {
-        $data['view'] = $view;
-
         extract($data);
 
-        include "Views/client/master.php";
+        include "Views/$view.php";
     }
 
     // Render ra giao diện Admin
