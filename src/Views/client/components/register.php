@@ -17,11 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	$email = $_POST["email"];
+	$address = $_POST["address"];
 
 	// You should perform validation and hashing here
 
 	// Example: Insert user into the database
-	$sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$password','$email')";
+	$sql = "INSERT INTO users (username, password, email,address) VALUES ('$username', '$password','$email',,'$address')";
 
 	if ($conn->query($sql) === TRUE) {
 		echo "Registration successful!";

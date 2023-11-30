@@ -203,8 +203,9 @@ $conn->close();
                 <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
                 <a href="#" class="pull-right">Forgot Password?</a>
             </div>
+            <p class="text-center small">Don't have an account? <a href="/src/Views/client/components/register.php">Sign up here!</a></p>
         </form>
-        <p class="text-center small">Don't have an account? <a href="/src/Views/client/components/register.php">Sign up here!</a></p>
+        
     </div>
 
 

@@ -166,7 +166,6 @@
 	}
 
 })(jQuery);
-
 function toggleDropdown() {
 	var dropdownMenu = document.getElementById("myDropdown");
 	dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";

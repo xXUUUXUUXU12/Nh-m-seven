@@ -14,10 +14,10 @@ if ($conn->connect_error) {
 }
 
 // Get product ID from the URL or any other source
-$product_id = $_GET['id']; // Assuming you're passing product_id in the URL
+$product_id = $_GET['product_id']; // Assuming you're passing product_id in the URL
 
 // Query to fetch product details based on product ID
-$sql = "SELECT * FROM products WHERE id = $product_id";
+$sql = "SELECT * FROM products WHERE product_id = $product_id";
 $result = $conn->query($sql);
 
 // Check if the query was successful

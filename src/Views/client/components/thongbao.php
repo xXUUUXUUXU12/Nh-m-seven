@@ -109,7 +109,8 @@
 				<p class="text-center">Bấm vào để quay lại trang chủ</p>
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-success btn-block" data-dismiss="modal"><a href="/src/Views/client/master.php"></a>OK</button>
+				<button class="btn btn-success btn-block" data-dismiss="modal" >OK</button>
+                <a href="/src/Views/client/master.php">OK</a>
 			</div>
 		</div>
 	</div>

@@ -89,7 +89,7 @@
 						<div class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" onclick="toggleDropdown()">
 								<i class="fa fa-user-o"></i>
-								<span>Your account </span>
+								<span> account </span>
 								<ul class="dropdown-menu" id="myDropdown">
 									<li><a href="/src/Views/client/components/login.php" class="dropdown-item">Đăng nhập</a></li>
 									<li><a href="/src/Views/client/components/register.php" class="dropdown-item">Đăng ký</a></li>
