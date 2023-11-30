@@ -17,6 +17,8 @@ class ProductController extends Controller {
         $products = (new Product())->all();
         $categories = (new Category())->all();
 
+        $categories = (new Category())->all();
+
         // Mảng này có cấu trúc, key là id danh mục, value là tên danh mục
         // Tạo ra mảng này để hiển thị tên danh mục sản phẩm ở danh sách
         $arrayCategoryIdName = [];
@@ -30,6 +32,9 @@ class ProductController extends Controller {
                 "arrayCategoryIdName" => $arrayCategoryIdName
             ]
         );
+
+        $this->renderAdmin("products/index", ["products" => $products]);
+
     }
 
     /* Thêm mới */
