@@ -5,4 +5,26 @@
 }
 body{
     width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.container{
+    width: 98%;
+    text-align: center;
+}
+h1{
+    background-color: rgb(129, 212, 240);
+}
+ul li{
+    display: inline-block;
+    font-size: 34px;
+    padding: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+img{
+    width: 92%;
+    height: 450px;
 }

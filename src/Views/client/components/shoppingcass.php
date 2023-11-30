@@ -4,7 +4,7 @@ session_start();
 // Thêm sản phẩm vào giỏ hàng
 if (isset($_POST['add_to_cart'])) {
     $product_id = $_POST['product_id'];
-    $quantity = $_POST['quantity'];
+    $quantity = $_POST['is_active1'];
 
     // Nếu giỏ hàng chưa tồn tại, tạo mới
     if (!isset($_SESSION['cart'])) {
@@ -43,7 +43,7 @@ if (isset($_GET['remove'])) {
             Product 1
             <form action="index.php" method="post">
                 <input type="hidden" name="product_id" value="1">
-                <input type="number" name="quantity" value="1" min="1">
+                <input type="number" name="is_active1" value="1" min="1">
                 <input type="submit" name="add_to_cart" value="Add to Cart">
             </form>
         </li>
@@ -69,7 +69,7 @@ if (isset($_GET['remove'])) {
 
     <h2>Checkout</h2>
 
-    <form action="checkout.php" method="post">
+    <form action="checkout.html" method="post">
         <!-- Thêm các trường thông tin thanh toán ở đây -->
         <input type="submit" name="checkout" value="Proceed to Checkout">
     </form>
