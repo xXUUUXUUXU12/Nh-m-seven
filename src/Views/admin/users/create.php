@@ -36,8 +36,8 @@
                                 </div>
                                 <div class="card-block">
                                     <form action="" method="post">
-                                        <label for="name">Name</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <label for="username">Name</label>
+                                        <input type="text" name="username" class="form-control">
 
                                         <label for="email" class="mt-3">Email</label>
                                         <input type="email" name="email" class="form-control">

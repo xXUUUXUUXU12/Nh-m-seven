@@ -46,6 +46,7 @@
     <?php require_once 'components/navbar1.php'; ?>
     <!-- /NAVIGATION -->
 
+    <!-- Chỗ này để content của Page -->
     <?php require_once $view . '.php'; ?>
 
     <!-- FOOTER -->
