@@ -8,9 +8,14 @@ use Ductong\BaseMvc\Models\Product;
 
 class ProductController extends Controller {
 
+    public function __construct() {
+        check_auth();
+    }
+    
     /* Lấy danh sách */
     public function index() {
         $products = (new Product())->all();
+        $categories = (new Category())->all();
 
         $categories = (new Category())->all();
 
