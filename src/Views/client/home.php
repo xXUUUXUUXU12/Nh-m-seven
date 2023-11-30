@@ -779,12 +779,12 @@
 </head>
 <body onload="loadanh()">
         <div class="header">
-            <h1 onload="">Phụ Kiện Điện Thoại</h1>
+            <h1>Phụ Kiện Điện Thoại</h1>        
         </div>
         <div class="menu">
             <ul>
                 <li><a href="">Home</a></li>
-                <li><a href="">Products</a></li>
+                <li> <a href="">Products</a></li>
                 <li><a href="">Categori</a></li>
                 <li><a href="">introduce</a></li>
             </ul>             

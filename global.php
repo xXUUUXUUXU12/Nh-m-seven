@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Chỉ cần khai báo 1 lần duy nhất tại đây
 session_start();
 
