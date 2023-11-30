@@ -166,3 +166,20 @@
 	}
 
 })(jQuery);
+function toggleDropdown() {
+	var dropdownMenu = document.getElementById("myDropdown");
+	dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+  }
+  
+  // Đóng menu khi nhấp chuột bên ngoài vùng menu
+  window.onclick = function(event) {
+	if (!event.target.matches('.dropdown-toggle')) {
+	  var dropdownMenus = document.getElementsByClassName("dropdown-menu");
+	  for (var i = 0; i < dropdownMenus.length; i++) {
+		var openDropdownMenu = dropdownMenus[i];
+		if (openDropdownMenu.style.display === "block") {
+		  openDropdownMenu.style.display = "none";
+		}
+	  }
+	}
+  };

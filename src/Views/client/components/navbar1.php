@@ -5,18 +5,13 @@
 		<div id="responsive-nav">
 			<!-- NAV -->
 			<ul class="main-nav nav navbar-nav">
-				<?php
-				if (isset($_SESSION['name_page'])) {
-					$name_page = $_SESSION['name_page'];
-				}
-				?>
-				<li><a href="#">Home</a></li>
-				<li <?= $name_page == 'trang_chu' ? 'active' : '' ?>><a href="<?= $uri ?>/components/store.php">Hot Deals</a></li>
-				<li><a href="<?= $view . '/components/store.php' ?>">Categories</a></li>
-				<li><a href="#">Laptops</a></li>
-				<li><a href="#">Smartphones</a></li>
-				<li><a href="#">Cameras</a></li>
-				<li><a href="#">Accessories</a></li>
+				<ul class="main-nav nav navbar-nav">
+					<li class="active"><a href="/src/Views/client/master.php">Trang chủ</a></li>
+					<li><a href="#">Giới thiệu</a></li>
+					<li><a href="/src/Views/client/components/store.php">Sản phẩm</a></li>
+					<li><a href="#">Hỏi đáp</a></li>
+					<li><a href="#">Liện hệ</a></li>
+				</ul>
 			</ul>
 			<!-- /NAV -->
 		</div>

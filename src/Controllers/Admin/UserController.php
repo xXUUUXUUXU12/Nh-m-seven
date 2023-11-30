@@ -19,7 +19,7 @@ class UserController extends Controller
     public function create() {
         if (isset($_POST['btn-submit'])) { 
             $data = [
-                'name' => $_POST['name'],
+                'username' => $_POST['username'],
                 'address' => $_POST['address'],
                 'email' => $_POST['email'],
                 'password' => $_POST['password'],
@@ -36,7 +36,7 @@ class UserController extends Controller
     public function update() {
         if (isset($_POST['btn-submit'])) { 
             $data = [
-                'name' => $_POST['name'],
+                'username' => $_POST['username'],
                 'address' => $_POST['address'],
                 'email' => $_POST['email'],
                 'password' => $_POST['password'],
